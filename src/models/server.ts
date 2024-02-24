@@ -3,6 +3,7 @@ import express,{Application} from 'express';
 import routesProduct from '../routes/product';
 import routesUser from '../routes/user';
 import { Product } from './product';
+import { User } from './user';
 
 
 class Server{
@@ -40,6 +41,7 @@ class Server{
     async dbConnect(){
         try {
             await Product.sync()
+            await User.sync()
             console.log('Connection has been established successfully.');
           } catch (error) {
             console.error('Unable to connect to the database:', error);
